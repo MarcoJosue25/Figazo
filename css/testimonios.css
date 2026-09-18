@@ -1,0 +1,328 @@
+/* ================================================
+   TESTIMONIOS.CSS — Sección de testimonios (Estilo Figma)
+   ================================================ */
+
+.c-testimonios {
+    width: 100%;
+    padding: var(--seccion-padding);
+    background-color: var(--oscuro);
+}
+.t-card-principal {
+    box-shadow: 0 0 60px rgba(255, 140, 0, 0.058),
+                0 0 120px rgba(255, 140, 0, 0.051);
+}
+/* Cabecera */
+.t-cabecera {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.t-etiqueta {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blanco);
+    margin-bottom: 12px;
+}
+
+.t-titulo {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-weight: 900;
+    color: var(--naranja);
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+/* ===== TESTIMONIO PRINCIPAL ===== */
+.t-principal {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.t-foto-wrap {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.t-foto {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+}
+
+.t-foto-etiqueta {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    background-color: rgba(0,0,0,0.7);
+    color: var(--gris-texto);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 4px;
+}
+
+.t-card-principal {
+    background-color: var(--gris-tarjeta);
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.t-card-etiqueta {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--naranja);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.t-card-titulo {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--blanco);
+}
+
+.t-cita {
+    font-size: 0.95rem;
+    color: var(--gris-texto);
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.t-card-principal > div:last-child {
+    margin-top: 10px;
+}
+
+.t-autor-nombre {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--naranja);
+}
+
+.t-autor-cargo {
+    font-size: 0.78rem;
+    color: var(--gris-texto);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===== WRAPPER — contiene flechas + track ===== */
+.t-slider-wrapper {
+    position: relative; /* flechas se posicionan aquí */
+    padding: 0;
+}
+
+/* ===== FLECHAS ===== */
+.t-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(30, 30, 30, 0.55);
+    backdrop-filter: blur(4px);
+    color: var(--blanco);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.t-flecha:hover {
+    opacity: 1;
+    background-color: rgba(30, 30, 30, 0.85);
+}
+
+.t-flecha-prev { left: 0; }
+.t-flecha-next { right: 0; }
+
+/* ===== SLIDER SECUNDARIOS ===== */
+.t-secundarios {
+    overflow: hidden; /* único que recorta */
+}
+
+.t-slider-track {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.t-card {
+    background-color: var(--gris-tarjeta);
+    border-radius: 14px;
+    padding: 24px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+    flex: 0 0 100%;
+    box-sizing: border-box;
+}
+
+.t-comillas {
+    font-size: 2.5rem;
+    color: var(--naranja);
+    line-height: 1;
+    opacity: 0.6;
+    margin-bottom: -10px;
+}
+
+.t-card-cita {
+    font-size: 0.88rem;
+    color: var(--gris-texto);
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.t-card-autor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.t-card-foto {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.t-card-nombre {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--blanco);
+}
+
+.t-card-cargo {
+    font-size: 0.72rem;
+    color: var(--naranja);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.t-card-principal,
+.t-card {
+    position: relative;
+    z-index: 1;
+}
+
+.fondo-tes {
+    position: relative;
+}
+
+.fondo-tes::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image:
+        radial-gradient(circle 70px at var(--glow-x) var(--glow-y),
+            rgba(255, 140, 0, var(--glow-opacity)) 0%, transparent 100%),
+        radial-gradient(ellipse 70% 30% at 50% 12%, rgba(255,140,0,0.14) 0%, transparent 40%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='61.5' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23FF8C00' fill-opacity='.04' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    -webkit-mask-image:
+        linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%),
+        linear-gradient(to right,  transparent 0%, black 20%, black 80%, transparent 100%);
+    -webkit-mask-composite: destination-in;
+    mask-image:
+        linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%),
+        linear-gradient(to right,  transparent 0%, black 20%, black 80%, transparent 100%);
+    mask-composite: intersect;
+    pointer-events: none;
+}
+/* ===== DESKTOP ===== */
+@media (min-width: 992px) {
+    .c-testimonios .contenedor{
+        margin-top: 100px;
+    }
+    .t-principal {
+        flex-direction: row;
+        align-items: stretch;
+        height: 720px;
+        gap: 100px;
+    }
+
+    .t-foto-wrap { flex: 5; }
+
+    .t-foto { height: 100%; }
+
+    .t-card-etiqueta { font-size: 1.3rem; }
+
+    .t-card-principal {
+        flex: 4;
+        padding: 70px;
+        justify-content: flex-start;
+        height: 600px;
+    }
+
+    .t-card-titulo { font-size: 3.2rem; }
+
+    .t-card-principal > div:last-child {
+        margin-top: auto;
+        text-align: right;
+    }
+
+    .t-slider-wrapper {
+        padding: 0 40px; /* más espacio para flechas más grandes */
+    }
+
+    .t-flecha {
+        width: 52px;
+        height: 52px;
+        font-size: 1.1rem;
+    }
+
+    .t-flecha-prev { left: 0; }
+    .t-flecha-next { right: 0; }
+
+    .t-card {
+        flex: 0 0 calc(50% - 12px);
+        max-height: 220px;
+        overflow: hidden;
+    }
+    .fondo-tes{
+    background-image:radial-gradient(circle 70px at var(--glow-x) var(--glow-y),
+    rgba(255, 140, 0, var(--glow-opacity)) 0%, transparent 100%),
+    radial-gradient(circle 70px at var(--glow-x) var(--glow-y),
+    rgba(255, 140, 0, var(--glow-opacity)) 0%, transparent 100%),
+    radial-gradient(ellipse 30% 30% at 27% 48%, rgba(255,140,0,0.14) 0%, transparent 40%),
+     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='123' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23FF8C00' fill-opacity='.025' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+ -webkit-mask-image:
+        linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%),
+        linear-gradient(to right,  transparent 0%, black 20%, black 80%, transparent 100%);
+    -webkit-mask-composite: destination-in;
+    mask-image:
+        linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%),
+        linear-gradient(to right,  transparent 0%, black 20%, black 80%, transparent 100%);
+    mask-composite: intersect;
+}
+ .fondo-tes::before {
+        display: none;
+    }
+    .t-card-principal {
+    box-shadow: 0 0 60px rgba(255, 140, 0, 0.1),
+                0 0 120px rgba(255, 140, 0, 0.08);
+}
+}

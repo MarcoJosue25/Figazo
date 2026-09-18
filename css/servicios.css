@@ -1,0 +1,177 @@
+/* ================================================
+   SERVICIOS.CSS — Grid de tarjetas flip 3D
+   ================================================ */
+
+.c-servicios {
+    width: 100%;
+    padding: var(--seccion-padding);
+    background-color: var(--blanco);
+}
+
+.s-cabecera {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 48px;
+}
+
+.s-titulo {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--oscuro);
+}
+
+/* ===== GRID ===== */
+.s-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+/* ===== CARD CONTENEDOR (perspectiva 3D) ===== */
+.s-card {
+    height: 260px;
+    perspective: 1000px;
+    cursor: pointer;
+    border-radius: 16px;
+    outline: none; /* quitamos el outline feo del tabindex */
+}
+
+/* ===== INNER — el que gira ===== */
+.s-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1.5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    border-radius: 16px;
+}
+
+@media (hover: none) {
+    .s-card:focus-within .s-card-inner {
+        transform: rotateY(180deg);
+        transition: transform 0.55s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    }
+}
+/* Giro en desktop con hover */
+@media (hover: hover) {
+    .s-card:hover .s-card-inner {
+        transform: rotateY(180deg);
+            transition: transform .5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    }
+}
+
+/* Giro en móvil/touch con foco (tabindex="0") */
+.s-card:focus-within .s-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* ===== FRENTE Y REVERSO — base compartida ===== */
+.s-card-front,
+.s-card-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Safari */
+}
+
+/* ===== FRENTE ===== */
+.s-card-foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.s-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
+}
+
+.s-card-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* ===== REVERSO ===== */
+.s-card-back {
+    background-color: #000000;
+    transform: rotateY(180deg); /* empieza girado, invisible */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 28px 24px;
+    gap: 14px;
+    border: 5px solid var(--naranja);
+}
+
+.s-card-back .s-card-icono {
+    width: 52px;
+    height: 52px;
+    border: 2px solid var(--naranja);
+    background-color: transparent;
+}
+
+.s-card-back .s-card-titulo {
+    font-size: 0.95rem;
+    color: var(--naranja);
+    margin: 0;
+}
+
+.s-card-back p {
+    font-size: 0.85rem;
+    color: var(--blanco);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== ICONOS (compartido frente/reverso) ===== */
+.s-card-icono {
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--blanco);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.s-card-icono i {
+    color: var(--blanco);
+    font-size: 1rem;
+}
+
+.s-card-titulo {
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: var(--blanco);
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 768px) {
+    .s-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 992px) {
+    .s-cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+    .s-card { height: 300px; }
+}

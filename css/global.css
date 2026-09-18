@@ -1,0 +1,137 @@
+/* ================================================
+   GLOBAL.CSS — Variables, reset, body, reutilizables
+   ================================================ */
+
+:root {
+    /* Colores */
+    --naranja:         #FF8C00;
+    --naranja-hover:   #e67e00;
+    --naranja-oscuro:  #cc7000;
+    --oscuro:          #0a0a0a;
+    --oscuro-2:        #111111;
+    --gris-tarjeta:    #1a1a1a;
+    --gris-borde:      rgba(255,255,255,0.12);
+    --blanco:          #ffffff;
+    --negro:           #000000;
+    --gris-texto:      #dddddd;
+
+    /* Tipografía */
+    --fuente: 'Montserrat','Segoe UI', system-ui, sans-serif;
+
+    /* Espaciado de secciones */
+    --seccion-padding: 80px 0;
+    --contenedor-max:  1200px;
+}
+
+.fondo-hex,
+.fondo-ped,
+.fondo-tes,
+.fondo-cer {
+    --glow-x: 50%;
+    --glow-y: 50%;
+    --glow-opacity: 0;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--fuente);
+    background-color: var(--oscuro);
+    color: var(--blanco);
+    overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a   { text-decoration: none; }
+ul  { list-style: none; }
+
+/* ===== CONTENEDOR ===== */
+.contenedor {
+    width: 100%;
+    max-width: var(--contenedor-max);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== COLORES DE TEXTO ===== */
+.naranja { color: var(--naranja); }
+.negro   { color: var(--negro); }
+
+/* ===== BOTONES ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-primario {
+    background-color: var(--naranja);
+    color: var(--negro);
+    backdrop-filter: blur(1.5px);
+
+}
+.btn-primario:hover { background-color: var(--naranja-hover); }
+
+.btn-secundario {
+    background-color: rgb(255, 255, 255,.1);
+    border: 1px solid var(--gris-texto);
+    color: var(--blanco);
+    backdrop-filter: blur(1.5px);
+}
+.btn-secundario:hover {
+    border-color: var(--blanco);
+    background-color: rgba(255,255,255,0.3);
+}
+
+.btn-outline-naranja {
+    background-color: transparent;
+    border: 2px solid var(--naranja);
+    color: var(--naranja);
+}
+.btn-outline-naranja:hover {
+    background-color: var(--naranja);
+    color: var(--negro);
+}
+
+/* ===== ETIQUETA PILL ===== */
+.etiqueta-pill {
+    display: inline-block;
+    background-color: var(--naranja);
+    color: var(--negro);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 5px 16px;
+    border-radius: 20px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* ===== LÍNEA NARANJA ===== */
+.linea-naranja {
+    width: 55px;
+    height: 3px;
+    background-color: var(--naranja);
+    border-radius: 2px;
+}
+.linea-naranja.centrada { margin: 0 auto; }
+
+/* Desde tablet la línea deja de ser un guion corto y pasa a
+   separador ancho. Aplica a todas las secciones que la usan. */
+@media (min-width: 768px) {
+    .linea-naranja { width: 85vh; }
+}

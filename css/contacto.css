@@ -1,0 +1,311 @@
+/* ================================================
+   CONTACTO.CSS — Versión Premium con Resplandor (Glow)
+   ================================================ */
+
+.c-contacto {
+    width: 100%;
+    background-color: #000000;
+    color: var(--blanco);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== CONTENEDOR PRINCIPAL (Título + Form + Redes) ===== */
+.ct-contenido {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* --- SECCIÓN IZQUIERDA: FORMULARIO --- */
+.ct-forms-container {
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+/* Título de las 24 horas */
+.ct-titulo {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 50px;
+    text-align: center;
+    color: #f1f1f1;
+}
+
+.span-hora {
+    color: var(--naranja);
+    border: 1px solid var(--naranja);
+    border-radius: 6px;
+    padding: 5px 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(255, 140, 0, 0.05);
+}
+
+.whatsapp-hora {
+    font-size: 0.85em;
+}
+
+/* Formulario */
+.ct-form-minimal {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.input-line {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-line input,
+.input-line textarea {
+    background-color: transparent;
+    border: none;
+    color: #e0e0e0;
+    font-family: var(--fuente);
+    font-size: 0.95rem;
+    padding: 10px 5px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.input-line textarea {
+    resize: none;
+}
+
+.input-line .linea {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.input-line input:focus + .linea,
+.input-line textarea:focus + .linea {
+    background-color: var(--naranja);
+    height: 2px;
+}
+
+.input-line input:focus,
+.input-line textarea:focus {
+    color: var(--blanco);
+}
+
+/* Botón de envío */
+.btn-enviar-premium {
+    background-color: var(--naranja);
+    color: var(--negro);
+    font-weight: 900;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.1);
+}
+
+.btn-enviar-premium:hover {
+    background-color: var(--naranja-hover);
+    color: var(--blanco);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
+}
+
+/* --- SECCIÓN DERECHA: REDES Y EL SOMBREADO/GLOW --- */
+.ct-redes-premium {
+    padding: 0px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative; /* Importante para el pseudo-elemento del glow */
+    overflow: hidden; /* Mantiene el glow dentro de sus límites */
+    background-color: var(--naranja);
+
+}
+
+/* Pseudo-elemento para el Resplandor (Glow) */
+.ct-redes-premium::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Degradado radial grande, difuso y de color naranja en el centro, transparente a los bordes */
+    background: radial-gradient(circle, rgba(255, 140, 0, 0.20) 0%, rgba(255, 140, 0, 0.1) 40%, rgba(0, 0, 0, 0) 70%);
+    top: 0;
+    left: 0;
+    pointer-events: none; /* No interfiere con los clics */
+    filter: blur(20px);
+}
+
+/* Contenedor de la Imagen del Celular */
+.cr-cel-imagen-wrap {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 0px;
+    padding: 20px 0px;
+}
+
+.cr-cel-img-ref {
+    width: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+/* Contenedor de Texto de Redes */
+.cr-texto-redes-container {
+    position: relative; /* Asegura que el texto esté sobre el glow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.cr-info-text {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #f1f1f1;
+    letter-spacing: 1px;
+    max-width: 250px;
+    line-height: 1.4;
+}
+
+/* Iconos de Redes Sociales */
+.cr-iconos-wrapper {
+    display: flex;
+    gap: 15px;
+}
+
+.cr-iconos-wrapper a {
+    color: #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.03);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cr-iconos-wrapper a:hover {
+    background-color: var(--naranja);
+    color: var(--negro);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.2);
+}
+
+/* --- SECCIÓN MAPA --- */
+.ct-mapa-premium {
+    width: 100%;
+    display: block;
+    line-height: 0;
+    margin-top: auto; /* Se empuja hasta el final si el contenido es corto */
+}
+.ct-redes-premium .cr-info-text {
+    color: var(--negro);
+}
+
+.ct-redes-premium .cr-iconos-wrapper a {
+    border-color: rgba(0, 0, 0, 0.2);
+    color: var(--blanco);
+    background-color: rgb(0, 0, 0);
+}
+.fondo-cont {
+    position: relative;
+}
+
+.fondo-cont::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image:
+        radial-gradient(circle 70px at var(--glow-x) var(--glow-y),
+            rgba(255, 140, 0, var(--glow-opacity)) 0%, transparent 100%),
+        radial-gradient(ellipse 70% 30% at 50% 12%, rgba(255,140,0,0.14) 0%, transparent 40%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='61.5' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23FF8C00' fill-opacity='.07' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    -webkit-mask-image:
+        linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%),
+        linear-gradient(to right,  transparent 0%, black 20%, black 80%, transparent 100%);
+    -webkit-mask-composite: destination-in;
+    mask-image:
+        linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%),
+        linear-gradient(to right,  transparent 0%, black 20%, black 80%, transparent 100%);
+    mask-composite: intersect;
+    pointer-events: none;
+}
+/* ===== DESKTOP MEDIA QUERY ===== */
+@media (min-width: 992px) {
+    .ct-contenido {
+        flex-direction: row;
+    }
+
+    .ct-forms-container {
+        width: 60%;
+        padding: 150px 0px 100px 300px;
+        margin: 0px;
+        justify-content: start;
+    }
+
+    .ct-redes-premium {
+        width: 40%;
+        padding:20px 0px 30px;
+        background-color: var(--naranja);
+    }
+
+    /* Ajusta el glow para que no tape el naranja */
+    .ct-redes-premium::before {
+        display: none;
+    }
+
+    /* Texto blanco sobre fondo naranja */
+    .cr-info-text {
+        color: var(--negro);
+    }
+
+    /* Hover: fondo negro, icono naranja */
+    .cr-iconos-wrapper a {
+        border-color: rgba(0, 0, 0, 0.2);
+        color: var(--naranja);
+        background-color: rgb(0, 0, 0);
+    }
+
+    .cr-iconos-wrapper a:hover {
+        background-color: var(--negro);
+        color: var(--blanco);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .ct-titulo {
+        text-align: left;
+        margin-bottom: 60px;
+        max-width: 680px;
+    }
+
+    .ct-form-minimal {
+        margin-left: 0;
+    }
+
+    .cr-cel-imagen-wrap {
+        max-width: 250px;
+    }
+    .cr-info-text{font-weight: 900;font-size: 17px;min-width: 300px;}
+    .cr-texto-redes-container{padding: 20px 0px;}
+}

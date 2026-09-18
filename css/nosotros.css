@@ -1,0 +1,257 @@
+/* ================================================
+   NOSOTROS.CSS — Sección sobre la empresa
+   ================================================ */
+
+.c-nosotros {
+    width: 100%;
+    padding: var(--seccion-padding);
+    background-color: var(--oscuro);
+}
+
+/* Layout: columna en móvil */
+.nosotros {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ===== BLOQUE IZQUIERDO (texto) ===== */
+.n-1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.n-etiqueta {
+    display: inline-block;
+    background-color: rgba(255,140,0,0.12);
+    color: var(--naranja);
+    border: 1px solid var(--naranja-oscuro);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 22px;
+    align-self: flex-start;
+}
+
+.n-titulo {
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.n-descripcion {
+    font-size: 0.97rem;
+    color: var(--gris-texto);
+    line-height: 1.72;
+    margin-bottom: 36px;
+}
+
+/* ===== ATRIBUTOS (métricas) ===== */
+.n-atributos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 36px;
+}
+
+.n-atributo {
+    border-left: 3px solid var(--naranja);
+    padding-left: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.n-atributo-valor {
+    font-size: 1.7rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.n-atributo-texto {
+    font-size: 0.72rem;
+    color: var(--gris-texto);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+/* ===== BLOQUE DERECHO (imagen + tarjeta) ===== */
+.n-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Foto con tarjeta flotante */
+.n-foto-wrap {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.n-foto {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+}
+
+/* Tarjeta glassmorphism flotante */
+.n-tarjeta {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(0, 0, 0, 0.4));
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.5);
+    border-radius: 12px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.n-icono {
+    background-color: var(--naranja);
+    color: var(--negro);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.n-tarjeta-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.n-tarjeta-sub {
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--negro);
+    background-color: var(--naranja);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    align-self: flex-start; /* Contrae la caja al ancho del texto */
+    border-radius: 5px;
+}
+
+
+.n-tarjeta-titulo {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--blanco);
+}
+
+/* ===== BOTÓN (fuera de los dos bloques, al fondo) ===== */
+.n-boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--naranja);
+    color: var(--negro);
+    font-weight: 800;
+    font-size: 0.88rem;
+    padding: 16px 32px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+.n-boton:hover { background-color: var(--naranja-hover); }
+
+.fondo-hex {
+    position: relative;
+}
+
+.fondo-hex::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: 
+        radial-gradient(circle 70px at var(--glow-x) var(--glow-y),
+            rgba(255, 140, 0, var(--glow-opacity)) 0%, transparent 100%),
+        radial-gradient(ellipse 50% 60% at 50% 10%, rgba(255,140,0,0.04) 0%, transparent 40%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='61.5' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23FF8C00' fill-opacity='.04' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    -webkit-mask-image: 
+        linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%),
+        linear-gradient(to right,  transparent 0%, black 20%, black 80%, transparent 100%);
+    -webkit-mask-composite: destination-in;
+    mask-image: 
+        linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%),
+        linear-gradient(to right,  transparent 0%, black 20%, black 80%, transparent 100%);
+    mask-composite: intersect;
+    pointer-events: none;
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 992px) {
+    .nosotros {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 70px;
+    }
+
+    .n-1 { flex: 1; }
+    .n-2 { flex: 1; margin-top: 15vh;}
+
+    .n-atributos {
+        flex-direction: row;
+        gap: 32px;
+    }
+
+    .n-foto { height: 480px; }
+
+    .n-tarjeta {
+        left: 20px;
+        transform: none;
+        width: auto;
+        padding: 18px 26px;
+    }
+
+    .n-boton { width: auto; }
+    .n-tarjeta-titulo{
+        font-size: 20px;
+        font-weight: 700;
+    }
+    
+    .fondo-hex::before {
+        display: none; 
+    }
+    .fondo-hex {
+        
+    background-image: radial-gradient(circle 70px at var(--glow-x) var(--glow-y),
+    rgba(255, 140, 0, var(--glow-opacity)) 0%, transparent 100%),
+    radial-gradient(ellipse 50% 60% at 30% 40%, rgba(255,140,0,0.14) 0%, transparent 40%),
+     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='123' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23FF8C00' fill-opacity='.04' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+ -webkit-mask-image: 
+        linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%),
+        linear-gradient(to right,  transparent 0%, black 20%, black 80%, transparent 100%);
+    -webkit-mask-composite: destination-in;
+    mask-image: 
+        linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%),
+        linear-gradient(to right,  transparent 0%, black 20%, black 80%, transparent 100%);
+    mask-composite: intersect;
+}
+}

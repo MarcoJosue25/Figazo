@@ -1,0 +1,99 @@
+/* ================================================
+   EMPRESAS.CSS — Empresas que nos eligen
+   ================================================ */
+
+.c-empresas {
+    width: 100%;
+    padding: var(--seccion-padding);
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.e-cabecera {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 50px;
+    gap: 20px;
+}
+
+.e-titulo {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--negro);
+    margin-bottom: 16px;
+}
+
+.e-descripcion {
+    font-size: 0.97rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Slider (ahora estático, sin animación) */
+.e-slider-wrap {
+    overflow: visible;
+    width: 100%;
+}
+
+.e-slider-track {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.e-logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 150px;
+}
+
+.e-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: filter 0.3s, opacity 0.3s;
+}
+
+.e-logo img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Oculta los logos duplicados en TODAS las resoluciones (ya no hay loop) */
+.e-duplicado {
+    display: none;
+}
+.contenedor-empresa{max-width: 1400px;}
+/* Móvil: grid 2 columnas (3 filas) + última fila completa, sin scroll */
+@media (max-width: 767px) {
+
+    .e-slider-track {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        width: 100%;
+    }
+
+    .e-logo {
+        width: 100%;
+        height: 90px;
+    }
+
+    /* El último logo ocupa toda la fila, solo, sin estirarse */
+    .e-ultimo {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: 50%;
+    }
+}

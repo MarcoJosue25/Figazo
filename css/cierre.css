@@ -1,0 +1,205 @@
+/* ================================================
+   CIERRE.CSS — Footer y Call To Action
+   ================================================ */
+
+.c-cierre {
+    background-color: var(--oscuro-2);
+    padding: 60px 0 30px;
+    color: var(--blanco);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ===== CALL TO ACTION (Arriba del footer) ===== */
+.cierre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 50px;
+}
+
+.cr-destacar h3 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 900;
+    color: var(--naranja);
+    margin-bottom: 10px;
+}
+
+.cr-destacar p {
+    color: var(--gris-texto);
+    font-size: 1.1rem;
+}
+
+.cr-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+/* ===== FOOTER LINKS ===== */
+/* Grid 2 columnas desde móvil (en vez de 1 columna apilada) */
+.cr-comentarios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 0px;
+}
+
+.cr-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* La columna principal (logo + descripción + redes) ocupa
+   el ancho completo arriba, en su propia fila, en móvil */
+.cr-col.principal {
+    grid-column: 1 / -1;
+}
+
+.footer-logo {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+.cr-col p {
+    color: var(--gris-texto);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* ===== REDES SOCIALES (iconos circulares) =====
+   Hover sube el círculo completo (fondo + icono juntos)
+   en vez de mover el icono por separado. */
+.cr-redes-footer {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.cr-redes-footer a {
+    color: var(--blanco);
+    background-color: rgba(255,255,255,0.05);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cr-redes-footer a:hover {
+    background-color: var(--blanco);
+    transform: translateY(-6px);
+}
+
+.cr-redes-footer a:hover i {
+    color: var(--naranja);
+}
+.cr-redes-footer a i {
+    flex-shrink: 0;
+    pointer-events: none;
+}
+/* ===== COLUMNAS DE LINKS ===== */
+.cr-col h4 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--blanco);
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.cr-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--naranja);
+}
+
+.cr-col a {
+    color: var(--gris-texto);
+    font-size: 0.9rem;
+    transition: color 0.3s;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cr-col a i {
+    color: var(--naranja);
+}
+
+.cr-col a:hover {
+    color: var(--naranja);
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 768px) {
+    .cierre {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .cr-btns {
+        flex-direction: row;
+        width: auto;
+    }
+
+    .cr-comentarios {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .cr-col.principal {
+        grid-column: auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .cr-comentarios {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+}
+/* ===== BOTÓN WHATSAPP FLOTANTE ===== */
+.wsp-flotante {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background-color: #25D366;
+    color: #fff;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    /* Oculto hasta llegar a #nosotros — se activa con JS */
+    opacity: 0;
+    pointer-events: none;
+}
+
+.wsp-flotante.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.wsp-flotante:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 22px rgba(0,0,0,0.4);
+}

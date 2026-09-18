@@ -1,0 +1,330 @@
+/* ================================================
+   HEADER.CSS — Navegación + menú hamburguesa móvil
+   Sin JavaScript, solo CSS
+   ================================================ */
+
+/* ===== CHECKBOX OCULTO (motor del menú) ===== */
+.h-toggle-input { display: none; }
+
+/* ===== WRAPPER FIJO ===== */
+.c-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+/* ===== BARRA PRINCIPAL ===== */
+.header {
+    position: relative; /* Necesario para el centrado del texto */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    max-width: var(--contenedor-max);
+    margin: 0 auto;
+}
+
+.h-logo {
+    flex-shrink: 0; /* El logo nunca se reduce, sin importar el espacio disponible */
+}
+
+/* ===== LOGO ===== */
+.logo-desktop {
+    display: none;
+    height: 44px;
+    width: auto;
+    flex-shrink: 0;
+}
+
+.logo-movil {
+    display: block;
+    height: 38px; /* Altura ajustada para el isotipo de la cabeza del gallo */
+    width: auto;
+}
+
+/* Texto del logo en versión móvil (Centrado Absoluto) */
+.texto-logo-movil {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--blanco, #ffffff);
+    font-size: 1.3rem;
+    font-weight: 800;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.texto-naranja {
+    color: var(--naranja, #FFB000);
+}
+
+/* ===== MENÚ DESKTOP (oculto en móvil) ===== */
+.h-menu {
+    display: none;
+    align-items: center;
+    gap: 35px;
+}
+
+.h-items {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.h-item {
+    display: flex;
+    align-items: center;
+}
+
+.h-item a {
+    color: var(--blanco);
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: color 0.3s, background-color 0.3s;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap; /* Evita que "¿Quiénes somos?" se rompa en dos líneas */
+}
+
+.h-item a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--naranja);
+    transition: width 0.3s;
+}
+
+.h-item a:hover,
+.h-item a.activo { color: var(--naranja); }
+
+.h-item a:hover::after,
+.h-item a.activo::after { width: 100%; }
+
+.h-redes {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.h-redes a {
+    color: var(--blanco);
+    font-size: 1.1rem;
+    transition: color 0.5s;
+}
+.h-redes a:hover { color: var(--naranja); }
+
+/* ===== HAMBURGUESA — label que actúa como botón ===== */
+.h-hamburguesa {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+}
+
+.h-hamburguesa span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background-color: var(--naranja, #FFB000);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* ===== PANEL MÓVIL (Animado con max-height) ===== */
+.h-panel-movil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    /* Inicio de propiedades de animación */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden; /* Oculta lo que sobrepase el max-height: 0 */
+    padding: 0 20px;
+    border-top: 0px solid transparent;
+    transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, padding 0.5s ease-in-out;
+}
+
+.h-panel-movil .h-items {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.h-panel-movil .h-item a {
+    font-size: 1.05rem;
+}
+
+/* Redes en columna en el panel móvil */
+.h-panel-movil .h-redes {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.h-panel-movil .h-redes a {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ===== MAGIA CSS — checkbox controla todo ===== */
+
+/* Muestra el panel expandiendo su altura */
+.h-toggle-input:checked ~ .h-panel-movil {
+    max-height: 500px; /* Un valor mayor a lo que ocupan los enlaces */
+    opacity: 1;
+    padding: 28px 20px 20px;
+    border-top: 1px solid var(--gris-borde);
+}
+
+/* Hamburguesa → X */
+.h-toggle-input:checked ~ .header .h-hamburguesa span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.h-toggle-input:checked ~ .header .h-hamburguesa span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.h-toggle-input:checked ~ .header .h-hamburguesa span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 992px) {
+    .h-hamburguesa        { display: none; }
+    .h-menu               { display: flex; }
+
+    /* En escritorio aseguramos que el panel móvil no moleste */
+    .h-panel-movil,
+    .h-toggle-input:checked ~ .h-panel-movil {
+        display: none !important;
+    }
+
+    /* Ocultamos el texto centrado del móvil en escritorio */
+    .texto-logo-movil {
+        display: none;
+    }
+
+    /* Header transparente con gradiente vertical, sin línea inferior */
+    .c-header {
+        background-color: transparent;
+        background-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.85) 0%,
+            rgba(0, 0, 0, 0.55) 45%,
+            rgba(0, 0, 0, 0) 100%
+        );
+        backdrop-filter: none;
+        border-bottom: none;
+        padding-bottom: 0px;
+    }
+
+    /* Padding horizontal en vw (correcto para espaciado horizontal,
+       a diferencia de vh que depende de la altura de la ventana).
+       Calibrado para verse igual que "10vh 15vh" en una pantalla
+       de referencia de 1920x1080, pero sin romper en anchos menores
+       ni quedarse corto en anchos mayores. */
+    .header {
+        max-width: none;
+        padding: 28px clamp(60px, 6vw, 130px) 0px clamp(20px, 9vw, 100px);
+    }
+
+    /* Menú: nunca permite que el texto rompa línea. Si falta espacio,
+       solo los BOTONES (.h-items) pasan a una 2da línea — el logo
+       y el resto de la barra se quedan fijos en su lugar. */
+    .h-menu {
+        gap: clamp(18px, 2.5vw, 35px);
+        flex-shrink: 0;
+    }
+
+    .h-items {
+        gap: clamp(14px, 2vw, 28px);
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    /* Control de logos en desktop */
+    .logo-desktop { display: block; height: 108px; }
+    .logo-movil { display: none; }
+
+    /* Solo cambia de color, sin fondo de pastilla ni subrayado */
+    .h-item a {
+        font-size: 0.95rem;
+        padding: 6px 4px;
+    }
+
+    .h-item a:hover:not(.activo) {
+        color: var(--naranja);
+    }
+
+    /* Sin línea/subrayado decorativo en desktop — solo cambio de color */
+    .h-item a::after {
+        display: none;
+    }
+}
+
+/* ===== PANTALLAS GRANDES (1400px+) =====
+   Más aire a los costados, tal como en la referencia visual */
+@media (min-width: 1400px) {
+    .header {
+        padding: 10px clamp(100px, 9vw, 170px) 10px clamp(120px, 12vw, 120px);
+    }
+
+    .h-menu {
+        gap: clamp(28px, 3vw, 40px);
+    }
+
+    .h-items {
+        gap: clamp(22px, 2.5vw, 32px);
+    }
+
+    .h-item a {
+        font-size: 1rem;
+        padding: 6px 4px;
+    }
+}
+/* ===== TEMAS DEL HEADER ===== */
+
+.c-header {
+    transition: background-color 0.4s ease, background-image 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+/* ESTADO NORMAL / TRANSPARENTE (Para secciones de fondo oscuro) */
+.header-transparente {
+    background-color: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+@media (min-width: 992px) {
+    .header-transparente {
+        background-color: transparent;
+        background-image: linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.85) 0%,
+            rgba(0,0,0,0.55) 45%,
+            rgba(0,0,0,0) 100%
+        );
+        backdrop-filter: none;
+    }
+}
+
+/* ESTADO OSCURO (Para secciones de fondo blanco) */
+.header-oscuro {
+    background-color: rgba(10, 10, 10, 1) !important;
+    background-image: none !important;
+    backdrop-filter: blur(6px) !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}

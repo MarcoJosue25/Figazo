@@ -1,0 +1,4 @@
+# La galeria se llamaba Galería.html (con tilde). Se mantiene la
+# direccion antigua para no romper enlaces ya compartidos.
+/Galería.html   /galeria   301!
+/galería        /galeria   301!

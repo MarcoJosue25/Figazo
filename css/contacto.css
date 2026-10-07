@@ -89,6 +89,16 @@
     transition: all 0.3s ease;
 }
 
+/* Al autocompletar, Chrome pinta el campo de azul claro y no hace caso a
+   background-color. La sombra interna lo repinta del negro del formulario. */
+.input-line input:-webkit-autofill,
+.input-line input:-webkit-autofill:hover,
+.input-line input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px #000000 inset;
+    -webkit-text-fill-color: #e0e0e0;
+    caret-color: #e0e0e0;
+}
+
 .input-line input:focus + .linea,
 .input-line textarea:focus + .linea {
     background-color: var(--naranja);

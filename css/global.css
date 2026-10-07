@@ -135,3 +135,15 @@ ul  { list-style: none; }
 @media (min-width: 768px) {
     .linea-naranja { width: 85vh; }
 }
+
+/* Quien activa "reducir movimiento" en su sistema operativo suele hacerlo
+   porque las animaciones le provocan mareo. Se dejan casi instantaneas. */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

@@ -4,35 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/galeriaAparte.css">
-    <link rel="stylesheet" href="css/cierre.css">
-        <title>Galería — Figazo Textil</title>
+    <title>Página no encontrada — Figazo Textil</title>
 
-    <meta name="description" content="Nuestro taller, telas, prendas terminadas y clientes. Mira el detrás de cada confección de Figazo Textil.">
-    <link rel="canonical" href="https://figazo-texil.netlify.app/galeria">
+    <!-- Una página de error no debe aparecer en los buscadores -->
+    <meta name="robots" content="noindex">
     <meta name="theme-color" content="#FF8C00">
 
     <link rel="icon" href="imagenes/logo.png" type="image/png">
     <link rel="apple-touch-icon" href="imagenes/logo.png">
 
-    <!-- Vista previa al compartir (WhatsApp, Facebook, X) -->
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="es_PE">
-    <meta property="og:site_name" content="Figazo Textil">
-    <meta property="og:url" content="https://figazo-texil.netlify.app/galeria">
-    <meta property="og:title" content="Galería | Figazo Textil">
-    <meta property="og:description" content="Nuestro taller, telas, prendas terminadas y clientes. Mira el detrás de cada confección de Figazo Textil.">
-    <meta property="og:image" content="https://figazo-texil.netlify.app/imagenes/og-figazo.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/error.css">
+    <link rel="stylesheet" href="css/cierre.css">
+    <script src="js/menu.js" defer></script>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="c-header c-header--solido">
+<header class="c-header">
 
     <input type="checkbox" id="menu-toggle" class="h-toggle-input">
 
@@ -85,47 +78,18 @@
 </header>
 
 <main>
-
-<!-- GALERÍA -->
-<section class="ga-seccion">
-
-    <div class="ga-cabecera">
-        <h1 class="ga-titulo">DETRÁS DE CADA <span class="naranja">CONFECCIÓN</span></h1>
-        <div class="ga-filtros">
-            <button class="ga-filtro activo" data-filtro="todos">Todos</button>
-            <button class="ga-filtro" data-filtro="taller">Taller</button>
-            <button class="ga-filtro" data-filtro="telas">Telas</button>
-            <button class="ga-filtro" data-filtro="prendas">Prendas</button>
-            <button class="ga-filtro" data-filtro="clientes">Clientes</button>
+    <section class="err">
+        <p class="err-numero">404</p>
+        <h1 class="err-titulo">Esta página no existe</h1>
+        <p class="err-texto">Puede que el enlace esté mal escrito o que la página ya no esté disponible. Desde el inicio puedes ver nuestros servicios y pedir tu cotización.</p>
+        <div class="err-botones">
+            <a href="index.html" class="btn btn-primario">IR AL INICIO</a>
+            <a href="galeria.html" class="btn btn-secundario">VER LA GALERÍA</a>
+            <a href="https://wa.me/51902767635" class="btn btn-secundario" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp"></i> ESCRÍBENOS
+            </a>
         </div>
-    </div>
-
-    <div class="ga-grid-wrap">
-        <div class="ga-grid">
-            <div class="ga-item" data-cat="taller"><img src="galeria/taller.webp" alt="Operarias cosiendo prendas azul marino en el taller" loading="lazy" decoding="async"></div>
-            <div class="ga-item" data-cat="taller"><img src="galeria/taller1.webp" alt="Prendas confeccionadas en exhibición junto a conos de hilo" loading="lazy" decoding="async"></div>
-            <div class="ga-item" data-cat="taller"><img src="galeria/taller2.webp"  alt="Costurera trabajando con una máquina de coser industrial" loading="lazy" decoding="async"></div>
-            <div class="ga-item" data-cat="telas"><img src="galeria/tela1.webp"  alt="Almacén con rollos de tela de distintos colores" loading="lazy" decoding="async"></div>
-            <div class="ga-item" data-cat="telas"><img src="galeria/tela.webp"   alt="Corte de tela con máquina cortadora vertical" loading="lazy" decoding="async"></div>
-            <div class="ga-item" data-cat="telas"><img src="galeria/tela2.webp"   alt="Muestrario de telas en distintos colores y texturas" loading="lazy" decoding="async"></div>
-            <div class="ga-item" data-cat="prendas"><img src="galeria/prenda.webp"  alt="Casaca polar con capucha en negro y beige" loading="lazy" decoding="async"></div>
-            <div class="ga-item" data-cat="prendas"><img src="galeria/prenda1.webp"  alt="Casaca deportiva negra con capucha" loading="lazy" decoding="async"></div>
-            <div class="ga-item" data-cat="prendas"><img src="galeria/prenda2.webp"  alt="Toma de medidas sobre un maniquí de costura" loading="lazy" decoding="async"></div>
-            <div class="ga-item" data-cat="clientes"><img src="galeria/cliente1.webp" alt="Equipo de Figazo Textil revisando un saco a medida en el taller" loading="lazy" decoding="async"></div>
-            <div class="ga-item" data-cat="clientes"><img src="galeria/cliente2.webp" alt="Entrega de una prenda terminada a dos clientes" loading="lazy" decoding="async"></div>
-            <div class="ga-item" data-cat="clientes"><img src="galeria/Cliente3.webp" alt="Trabajadora de Figazo Textil mostrando una casaca deportiva terminada" loading="lazy" decoding="async"></div>
-        </div>
-    </div>
-
-</section>
-
-<div id="lightbox" class="lightbox">
-    <span class="lb-cerrar" aria-label="Cerrar">&times;</span>
-    <span class="lb-prev" aria-label="Anterior">&#10094;</span>
-    <img class="lb-imagen" id="lb-img" src="" alt="Imagen ampliada" loading="lazy" decoding="async">
-    <span class="lb-next" aria-label="Siguiente">&#10095;</span>
-</div>
-
+    </section>
 </main>
 
 <footer class="c-cierre">
@@ -181,8 +145,6 @@
         
     </div>
 </footer>
-<script src="js/lightbox.js" defer></script>
-<script src="js/galeria.js" defer></script>
 
 </body>
-</html> 
+</html>

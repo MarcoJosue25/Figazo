@@ -1,0 +1,42 @@
+/* ================================================
+   ERROR.CSS — Página 404
+   ================================================ */
+
+.err {
+    min-height: 68vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    /* La cabecera es fija: este margen evita que tape el contenido */
+    padding: 160px 20px 90px;
+}
+
+.err-numero {
+    font-size: clamp(4.5rem, 20vw, 10rem);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--naranja);
+}
+
+.err-titulo {
+    font-size: clamp(1.3rem, 4vw, 2.1rem);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.err-texto {
+    max-width: 520px;
+    color: var(--gris-texto);
+    line-height: 1.6;
+}
+
+.err-botones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 10px;
+}

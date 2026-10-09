@@ -210,143 +210,12 @@
     }
 }
 
-/* ===== CARD CONTENEDOR (perspectiva 3D) ===== */
-.qs-linea-item {
-    height: 260px;
-    perspective: 1000px;
-    cursor: pointer;
-    border-radius: 16px;
-    outline: none;
-}
-
-@media (min-width: 992px) {
-    .qs-linea-item { height: 300px; }
-}
-
-/* ===== INNER — el que gira ===== */
-.qs-linea-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 1.5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
-    border-radius: 16px;
-}
-
-/* Giro en desktop con hover */
-@media (hover: hover) {
-    .qs-linea-item:hover .qs-linea-inner {
-        transform: rotateY(180deg);
-        transition: transform .5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
-    }
-}
-
-/* Giro en móvil/touch con foco (tabindex="0") */
-@media (hover: none) {
-    .qs-linea-item:focus-within .qs-linea-inner {
-        transform: rotateY(180deg);
-        transition: transform 0.55s cubic-bezier(0.45, 0.05, 0.55, 0.95);
-    }
-}
-
-.qs-linea-item:focus-within .qs-linea-inner {
-    transform: rotateY(180deg);
-}
-
-/* ===== FRENTE Y REVERSO — base compartida ===== */
-.qs-linea-front,
-.qs-linea-back {
-    position: absolute;
-    inset: 0;
-    border-radius: 16px;
-    overflow: hidden;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-}
-
-/* ===== FRENTE ===== */
-.qs-linea-foto {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.qs-linea-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
-}
-
-.qs-linea-info {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
+/* Estas tarjetas usan el componente .flip-card de componentes.css.
+   Lo unico propio: aqui el titulo se corta tambien por la derecha. */
+.qs-lineas-grid .flip-card-info {
     right: 20px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
 }
 
-/* ===== REVERSO ===== */
-.qs-linea-back {
-    background-color: #000000;
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 28px 24px;
-    gap: 14px;
-    border: 5px solid var(--naranja);
-}
-
-.qs-linea-back .qs-linea-icono {
-    width: 52px;
-    height: 52px;
-    border: 2px solid var(--naranja);
-    background-color: transparent;
-}
-
-.qs-linea-back .qs-linea-titulo {
-    font-size: 0.95rem;
-    color: var(--naranja);
-    margin: 0;
-}
-
-.qs-linea-back p {
-    font-size: 0.85rem;
-    color: #fff;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* ===== ICONOS (compartido frente/reverso) ===== */
-.qs-linea-icono {
-    width: 44px;
-    height: 44px;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.qs-linea-icono i {
-    color: #fff;
-    font-size: 1rem;
-}
-
-.qs-linea-titulo {
-    font-size: 1rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    line-height: 1.2;
-    color: #fff;
-}
 /* ============================================
    RESPONSIVE — MÓVIL
    ============================================ */
@@ -425,7 +294,7 @@
         justify-content: center;
     }
 
-    .qs-linea-item {
+    .flip-card {
         width: 100%;
         max-width: 400px; /* evita que se vea demasiado ancha en celulares grandes */
         height: 250px;

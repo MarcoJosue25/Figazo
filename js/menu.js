@@ -19,7 +19,7 @@
     });
 })();
 
-document.querySelectorAll('.s-card').forEach(card => {
+document.querySelectorAll('.flip-card').forEach(card => {
     card.addEventListener('click', () => {
         if (window.matchMedia('(hover: hover)').matches) {
             card.blur();

@@ -1,0 +1,142 @@
+/* ================================================
+   COMPONENTES.CSS — Piezas compartidas entre páginas
+   ================================================ */
+
+/* ===== TARJETA QUE GIRA =====
+   La usan los servicios del inicio y las líneas de
+   especialización de "¿Quiénes somos?". */
+
+.flip-card {
+    height: 260px;
+    perspective: 1000px;
+    cursor: pointer;
+    border-radius: 16px;
+    outline: none; /* quitamos el outline feo del tabindex */
+}
+
+@media (min-width: 992px) {
+    .flip-card { height: 300px; }
+}
+
+/* La cara que gira */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1.5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    border-radius: 16px;
+}
+
+/* Giro en escritorio con el puntero encima */
+@media (hover: hover) {
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+        transition: transform .5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    }
+}
+
+/* Giro en móvil al tocar (tabindex="0") */
+@media (hover: none) {
+    .flip-card:focus-within .flip-card-inner {
+        transform: rotateY(180deg);
+        transition: transform 0.55s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    }
+}
+
+.flip-card:focus-within .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* ===== LAS DOS CARAS ===== */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Safari */
+}
+
+.flip-card-foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.flip-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
+}
+
+.flip-card-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* El reverso empieza girado, por eso no se ve */
+.flip-card-back {
+    background-color: #000000;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 28px 24px;
+    gap: 14px;
+    border: 5px solid var(--naranja);
+}
+
+.flip-card-back .flip-card-icono {
+    width: 52px;
+    height: 52px;
+    border: 2px solid var(--naranja);
+    background-color: transparent;
+}
+
+.flip-card-back .flip-card-titulo {
+    font-size: 0.95rem;
+    color: var(--naranja);
+    margin: 0;
+}
+
+.flip-card-back p {
+    font-size: 0.85rem;
+    color: var(--blanco);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== ICONO Y TITULO (compartidos por las dos caras) ===== */
+.flip-card-icono {
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--blanco);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.flip-card-icono i {
+    color: var(--blanco);
+    font-size: 1rem;
+}
+
+.flip-card-titulo {
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: var(--blanco);
+}
